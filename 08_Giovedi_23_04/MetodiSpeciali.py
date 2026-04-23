@@ -1,7 +1,4 @@
 ### str e repr
-from typing import Any
-
-
 class Libro:
     def __init__(self, titolo, autore):
         self.titolo = titolo
