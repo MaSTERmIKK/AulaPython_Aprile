@@ -7,20 +7,25 @@ class Animale:
 
 class Cane(Animale):
 
-    def __init__(self, nome):
+    def __init__(self, nome, eta):
         super().__init__(nome)
+        self.eta = eta
 
     def fai_verso(self):
         print(f"{self.nome} sta abbaiando")
 
 class Gatto(Animale):
 
-    def fai_verso(self):
+    def __init__(self, nome, lenArtigli):
+        super().__init__(nome)
+        self.lenArtigli = lenArtigli
+
+    def fai_verso(self, ):
         print(f"{self.nome} sta miagolando")
 
 animale = Animale("Pippo")
-cane = Cane("Fido")
-gatto = Gatto("Morfeo")
+cane = Cane("Fido", 10)
+gatto = Gatto("Morfeo", 2.6)
 
 animale.fai_verso()
 cane.fai_verso()
