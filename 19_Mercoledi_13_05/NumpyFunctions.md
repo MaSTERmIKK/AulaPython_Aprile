@@ -200,6 +200,25 @@ Confrontare la variabilità dei prezzi di due titoli azionari per valutare il ri
 
 ---
 
+## Trasformate e Analisi dei Segnali
+
+### `np.fft.fft(x)`
+
+**Esempio pratico**
+
+```python
+np.fft.fft([1, 0, 1, 0])
+# → [2.+0.j, 0.+0.j, 2.+0.j, 0.+0.j]
+```
+
+**Spiegazione teorica**
+Calcola la Trasformata Discreta di Fourier (DFT) di un segnale, convertendolo dal dominio del tempo al dominio delle frequenze.
+
+**Esempio di utilizzo**
+Identificare le frequenze dominanti in un segnale audio o in una serie temporale di sensori.
+
+---
+
 ## Prodotto Matriciale e Algebra Lineare
 
 ### `np.dot(A, B)`
@@ -283,6 +302,22 @@ Restituisce autovalori e autovettori di una matrice quadrata. Un autovettore $v$
 
 **Esempio di utilizzo**
 Applicare la PCA (Principal Component Analysis) per ridurre la dimensionalità di un dataset.
+
+---
+
+### `np.linalg.norm(x)`
+
+**Esempio pratico**
+
+```python
+np.linalg.norm([3, 4])  # → 5.0
+```
+
+**Spiegazione teorica**
+Calcola la norma di un vettore o di una matrice. Di default usa la norma euclidea ($L_2$) per i vettori.
+
+**Esempio di utilizzo**
+Misurare la lunghezza di un vettore spostamento o la distanza tra due punti nello spazio.
 
 ---
 
