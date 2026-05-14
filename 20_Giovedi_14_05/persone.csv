@@ -1,0 +1,13 @@
+Nome,Eta,Citta
+Alice,25,Roma
+Bob,30,Milano
+Carla,22,Napoli
+Bob,30,Milano
+Carla,,Napoli
+Alice,25,Roma
+,29,Roma
+Luca,27,Torino
+Sara,31,Bologna
+Marco,24,Firenze
+Elena,28,Genova
+Paolo,,Milano
