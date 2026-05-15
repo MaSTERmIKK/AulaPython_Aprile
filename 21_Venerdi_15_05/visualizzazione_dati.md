@@ -1,8 +1,5 @@
 # 📊 Visualizzazione dei Dati in Python
 
-Benvenuti alla settimana dedicata alla **visualizzazione dei dati**!  
-In questa settimana imparerete a trasformare dati grezzi in grafici chiari e informativi usando due librerie fondamentali: **Matplotlib** e **Seaborn**.
-
 ---
 
 ## 1. Perché Visualizzare i Dati?
@@ -169,6 +166,45 @@ plt.rcParams['figure.facecolor'] = 'white' # sfondo bianco
 
 ---
 
+### 4.4 Subplot
+
+I **subplot** ti permettono di visualizzare più grafici in una griglia, affiancati all'interno di una stessa Figure. Questo è utile per confrontare diversi dataset o rappresentazioni dello stesso dataset.
+
+#### Creazione con `plt.subplots()`
+
+Il metodo `plt.subplots(nrows, ncols)` crea una griglia di grafici.
+
+```python
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Crea una griglia di 2 righe e 2 colonne
+fig, axes = plt.subplots(nrows=2, ncols=2, figsize=(10, 8))
+
+# axes è un array 2D: puoi accedere ai singoli assi con axes[riga, colonna]
+
+# Primo grafico (in alto a sinistra)
+axes[0, 0].plot([1, 2, 3, 4], [1, 4, 2, 3])
+axes[0, 0].set_title('Grafico 1: Linee')
+
+# Secondo grafico (in alto a destra)
+axes[0, 1].scatter([1, 2, 3, 4], [2, 3, 1, 4])
+axes[0, 1].set_title('Grafico 2: Scatter')
+
+# Terzo grafico (in basso a sinistra)
+axes[1, 0].bar(['A', 'B', 'C'], [3, 7, 5])
+axes[1, 0].set_title('Grafico 3: Barre')
+
+# Quarto grafico (in basso a destra)
+axes[1, 1].hist(np.random.randn(100), bins=20)
+axes[1, 1].set_title('Grafico 4: Istogramma')
+
+plt.tight_layout()  # regola automaticamente lo spazio tra i grafici
+plt.show()
+```
+
+---
+
 ## 5. Seaborn
 
 ### 5.1 Cos'è Seaborn?
@@ -255,7 +291,36 @@ plt.show()
 
 ---
 
-### 5.4 Matplotlib vs Seaborn — Quando usare quale?
+### 5.4 Subplot con Seaborn
+
+Seaborn non ha un metodo nativo per i subplot, ma si integra perfettamente con `plt.subplots()` di Matplotlib: basta passare l'asse (`ax`) desiderato a ciascuna funzione Seaborn tramite il parametro `ax`.
+
+#### Esempio Base: Grafici Affiancati
+
+```python
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+sns.set_theme(style="whitegrid")
+tips = sns.load_dataset("tips")
+
+fig, axes = plt.subplots(1, 2, figsize=(12, 5))
+
+# Grafico 1: distribuzione del conto totale
+sns.histplot(data=tips, x="total_bill", kde=True, ax=axes[0])
+axes[0].set_title('Distribuzione del Conto Totale')
+
+# Grafico 2: conto totale per giorno
+sns.barplot(data=tips, x="day", y="total_bill", ax=axes[1])
+axes[1].set_title('Conto Totale per Giorno')
+
+plt.tight_layout()
+plt.show()
+```
+
+---
+
+### 5.5 Matplotlib vs Seaborn — Quando usare quale?
 
 | | Matplotlib | Seaborn |
 |---|---|---|
