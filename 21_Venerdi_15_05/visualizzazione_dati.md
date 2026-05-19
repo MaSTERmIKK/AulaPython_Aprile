@@ -344,47 +344,11 @@ Genera un DataFrame pandas con una colonna `temperature` (30 valori casuali) e c
 - temperatura media
 - mediana delle temperature
 
-```python
-import pandas as pd
-import numpy as np
-
-# Genera i dati
-np.random.seed(42)
-df = pd.DataFrame({'temperature': np.random.uniform(10, 35, 30)})
-
-# Calcola le statistiche
-print("Max:   ", df['temperature'].max())
-print("Min:   ", df['temperature'].min())
-print("Media: ", df['temperature'].mean())
-print("Mediana:", df['temperature'].median())
-```
-
 ---
 
 ### Esercizio 2 — Normalizzazione Min-Max
 
 Crea un DataFrame con colonne `altezza`, `peso` ed `età`. Applica la normalizzazione min-max ad `altezza` e `peso` (scala i valori tra 0 e 1), lasciando `età` invariata.
-
-```python
-import pandas as pd
-import numpy as np
-
-# Dati di esempio
-df = pd.DataFrame({
-    'altezza': [160, 175, 182, 158, 170],
-    'peso':    [55,  80,  90,  50,  70],
-    'eta':     [25,  30,  22,  28,  35]
-})
-
-df_norm = df.copy()
-
-# Normalizzazione min-max
-for col in ['altezza', 'peso']:
-    df_norm[col] = (df[col] - df[col].min()) / (df[col].max() - df[col].min())
-
-print("Originale:\n", df)
-print("\nNormalizzato:\n", df_norm)
-```
 
 ---
 
@@ -396,48 +360,6 @@ Genera 365 giorni di visitatori in un parco, con trend crescente. Poi:
 2. Calcola media e deviazione standard mensile
 3. Traccia il grafico giornaliero con media mobile a 7 giorni
 4. Traccia la media mensile
-
-```python
-import numpy as np
-import pandas as pd
-import matplotlib.pyplot as plt
-
-# 1. Genera i dati
-np.random.seed(0)
-giorni      = 365
-trend       = np.linspace(0, 500, giorni)             # crescita graduale
-visitatori  = np.random.normal(2000, 500, giorni) + trend
-date        = pd.date_range(start='2024-01-01', periods=giorni)
-
-# 2. Crea il DataFrame
-df = pd.DataFrame({'visitatori': visitatori}, index=date)
-
-# 3. Statistiche mensili
-mensile = df.resample('ME').agg(['mean', 'std'])
-print(mensile)
-
-# 4. Grafico giornaliero con media mobile
-df['media_mobile_7g'] = df['visitatori'].rolling(7).mean()
-
-plt.figure(figsize=(12, 4))
-plt.plot(df.index, df['visitatori'], alpha=0.4, label='Giornaliero')
-plt.plot(df.index, df['media_mobile_7g'], color='red', label='Media mobile 7gg')
-plt.title('Visitatori Giornalieri — Parco')
-plt.xlabel('Data')
-plt.ylabel('Visitatori')
-plt.legend()
-plt.tight_layout()
-plt.show()
-
-# 5. Grafico media mensile
-plt.figure(figsize=(10, 4))
-plt.bar(mensile.index.strftime('%b'), mensile[('visitatori', 'mean')])
-plt.title('Media Mensile Visitatori')
-plt.xlabel('Mese')
-plt.ylabel('Media visitatori')
-plt.tight_layout()
-plt.show()
-```
 
 ---
 
