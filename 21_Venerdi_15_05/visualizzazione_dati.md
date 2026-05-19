@@ -344,11 +344,21 @@ Genera un DataFrame pandas con una colonna `temperature` (30 valori casuali) e c
 - temperatura media
 - mediana delle temperature
 
+Visualizzazione richiesta:
+
+- Con **Matplotlib**: crea un line plot delle temperature con linea orizzontale della media
+- Con **Seaborn**: crea un `histplot` con `kde=True` per mostrare la distribuzione
+
 ---
 
 ### Esercizio 2 — Normalizzazione Min-Max
 
 Crea un DataFrame con colonne `altezza`, `peso` ed `età`. Applica la normalizzazione min-max ad `altezza` e `peso` (scala i valori tra 0 e 1), lasciando `età` invariata.
+
+Visualizzazione richiesta:
+
+- Con **Matplotlib**: crea un confronto a barre tra valori originali e normalizzati di `altezza` e `peso`
+- Con **Seaborn**: crea uno `scatterplot` tra `altezza` normalizzata e `peso` normalizzato
 
 ---
 
@@ -360,6 +370,11 @@ Genera 365 giorni di visitatori in un parco, con trend crescente. Poi:
 2. Calcola media e deviazione standard mensile
 3. Traccia il grafico giornaliero con media mobile a 7 giorni
 4. Traccia la media mensile
+
+Visualizzazione richiesta:
+
+- Con **Matplotlib**: mostra in un unico grafico serie giornaliera e media mobile a 7 giorni
+- Con **Seaborn**: crea un `lineplot` della media mensile dei visitatori
 
 ---
 
