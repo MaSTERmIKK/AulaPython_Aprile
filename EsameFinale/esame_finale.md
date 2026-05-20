@@ -139,6 +139,20 @@ Per ogni domanda scrivi: la query SQL + una spiegazione di 1-3 righe.
 - **D5**  — Utenti `"Premium"` con almeno 10 corse: mostra numero corse totali e km totali. (JOIN richiesto)
 - **D6**  — Spiega a parole cosa fa questa query e quale informazione di business produce:
 
+```sql
+SELECT
+    s.nome AS stazione,
+    s.citta,
+    COUNT(c_in.id_corsa)  AS arrivi,
+    COUNT(c_out.id_corsa) AS partenze,
+    COUNT(c_in.id_corsa) - COUNT(c_out.id_corsa) AS bilancio
+FROM stazioni s
+LEFT JOIN corse c_in  ON s.nome = c_in.stazione_arrivo
+LEFT JOIN corse c_out ON s.nome = c_out.stazione_partenza
+GROUP BY s.nome, s.citta
+ORDER BY bilancio DESC;
+```
+
 ---
 
 ## Task 5 — Analisi Numerica con NumPy
