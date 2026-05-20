@@ -15,7 +15,7 @@ Sei un analista junior di **VeloCittà**, startup italiana di bike sharing attiv
 - Crea il repo `velocita-analytics` con la struttura sopra
 - Il `README.md` deve includere: titolo, descrizione (3-5 righe), istruzioni di esecuzione
 
-**1.2 — Funzioni di utilità**  — file: `giorno_1/demo.py`
+**1.2 — Funzioni di utilità**
 
 Scrivi queste tre funzioni **senza librerie esterne**:
 
@@ -138,20 +138,6 @@ Per ogni domanda scrivi: la query SQL + una spiegazione di 1-3 righe.
 - **D4**  — Stazioni di Milano con più di 50 arrivi in aprile 2026. Ordina per conteggio decrescente.
 - **D5**  — Utenti `"Premium"` con almeno 10 corse: mostra numero corse totali e km totali. (JOIN richiesto)
 - **D6**  — Spiega a parole cosa fa questa query e quale informazione di business produce:
-
-```sql
-SELECT
-    s.nome AS stazione,
-    s.citta,
-    COUNT(c_in.id_corsa)  AS arrivi,
-    COUNT(c_out.id_corsa) AS partenze,
-    COUNT(c_in.id_corsa) - COUNT(c_out.id_corsa) AS bilancio
-FROM stazioni s
-LEFT JOIN corse c_in  ON s.nome = c_in.stazione_arrivo
-LEFT JOIN corse c_out ON s.nome = c_out.stazione_partenza
-GROUP BY s.nome, s.citta
-ORDER BY bilancio DESC;
-```
 
 ---
 
