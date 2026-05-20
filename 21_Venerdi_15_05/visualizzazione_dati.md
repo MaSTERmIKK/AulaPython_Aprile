@@ -1,4 +1,4 @@
-# 📊 Visualizzazione dei Dati in Python
+# Visualizzazione dei Dati in Python
 
 ---
 

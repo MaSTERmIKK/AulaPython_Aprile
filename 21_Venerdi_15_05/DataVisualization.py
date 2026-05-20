@@ -31,15 +31,16 @@ valori = [3, 7, 2, 5, 8]
 # plt.ylabel("Valori")
 
 # #HIST
-# plt.figure()
+plt.figure()
 
-# data = np.random.randn(1000)
-# plt.hist(data, bins=30)
-# plt.title("Istogramma")
-# plt.xlabel('Valori')
-# plt.ylabel('Frequenza')
+data = np.random.randn(1000)
+plt.hist(data, bins=30)
+plt.title("Istogramma")
+plt.xlabel('Valori')
+plt.ylabel('Frequenza')
+plt.legend(["Valori", "Frequenza"])
 
-# #Scatter plot
+#Scatter plot
 # x = np.random.rand(50)
 # y = np.random.rand(50)
 
@@ -49,8 +50,9 @@ valori = [3, 7, 2, 5, 8]
 # plt.title("ScatterPlot")
 # plt.xlabel("X")
 # plt.ylabel("Y")
+# # plt.legend(["uno", "due"])
 
-# plt.show()
+plt.show()
 
 #Subplot
 
@@ -69,22 +71,22 @@ valori = [3, 7, 2, 5, 8]
 
 #Seaborn
 
-sns.set_theme(style='darkgrid')
+# sns.set_theme(style='darkgrid')
 
-plt.figure()
+# plt.figure()
 
-tips = sns.load_dataset("tips")
-print(tips.head())
+# tips = sns.load_dataset("tips")
+# print(tips.head())
 
-sns.barplot(x="day", y="total_bill", data=tips)
-plt.title('Conto totale del giorno')
+# sns.barplot(x="day", y="total_bill", data=tips)
+# plt.title('Conto totale del giorno')
 
-plt.figure()
+# plt.figure()
 
-fmri = sns.load_dataset("fmri")
-print(fmri.head())
+# fmri = sns.load_dataset("fmri")
+# print(fmri.head())
 
-sns.lineplot(x="timepoint", y="signal", data=fmri)
-plt.title("Segnale FMRI nel tempo")
+# sns.lineplot(x="timepoint", y="signal", data=fmri)
+# plt.title("Segnale FMRI nel tempo")
 
-plt.show()
+# plt.show()
