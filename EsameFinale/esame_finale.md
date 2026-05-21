@@ -320,6 +320,8 @@ seaborn>=0.12
 > il repository deve essere **pubblico** al momento della consegna.  
 > Non caricare `.pyc`, `__pycache__` o ambienti virtuali — usa `.gitignore`.
 
+**il link alla repo la inviate a me all'email e99delsarto@gmail.com**
+
 ---
 
 *Buona fortuna!*
